@@ -308,6 +308,11 @@ Contains:
 ##### Create public GitHub repo, and set up with local directory
 ##### create-react-app bootstraps our folder structure, dependencies, layout and package manager
 
-create-react-app included eject cmd
+create-react-app included eject cmd, which allows us to customize environment 
+npm run eject
+    => you can see Babel, ESLint, Jest config files
+    => shows hidden files such as ^^^.config files, polyfills.js, script builds
 
+remove logo.svg, App.css and references in App.js
 
+## Module: Documentation
