@@ -308,4 +308,6 @@ Contains:
 ##### Create public GitHub repo, and set up with local directory
 ##### create-react-app bootstraps our folder structure, dependencies, layout and package manager
 
+create-react-app included eject cmd
+
 
