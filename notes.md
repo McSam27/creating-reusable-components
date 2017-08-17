@@ -474,3 +474,21 @@ This Code's Folder Structure:
     * These components are created for formatting of data / output
 
 * Avoid hard coding all features / options that are available for consumers. Make it openly known. Such as colors of progress bar, border, 
+* Most atoms, are / seem to be trivial during development.
+* But, Inputs are very popular, such asc checkboxes, password fields, email fields, labels, radio buttons.
+* Icons / SVG are good useful atoms. But, you should consider writing a script to generate a static page of icons. Then, you can weave that into your documentation.
+
+### Tips for Molecules:
+They are groups of atoms, bonded together to serve a higher purpose.
+* Creates a simple, functional, reuseable component.
+* Should have a single, but higher level, responsibility.
+
+Form Decisions:
+* Horizontal or vertical?
+* Errors at top, by field or both?
+* Show errors on blur or submit?
+* Mark required fields? If so, how?
+* Tie label to input via htmlFor?
+* Padding below each input?
+    + Consistency goes up
+    - Decision Fatigue goes down
