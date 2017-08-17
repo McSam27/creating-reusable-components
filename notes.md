@@ -305,6 +305,7 @@ Contains:
     * Jest
 
 ##### Install node & git on local machine
-
+##### Create public GitHub repo, and set up with local directory
+##### create-react-app bootstraps our folder structure, dependencies, layout and package manager
 
 
