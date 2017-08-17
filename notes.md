@@ -379,7 +379,7 @@ DevTips:
 1. Highlight.js
     * Shows proper syntax highlighting and allows people to copy and paste.
 2. Codemirror
-    * Mini editor that will reflect changes in the view.
+    * Mini editor that will reflect changes in the view. 
     * react-toolbox uses this
 
 ##### Potential Doc Enhancements
@@ -390,4 +390,87 @@ DevTips:
 5. Markdown support
 6. Live code editing such as CodeMirror. Very impressive and good for feedback. Such as react tool-box. Can link to JSBin, JSFiddle, codesandbox.io.
 
-* react-toolbox has one of the nicest set of component libraries
+### 'react-toolbox' has one of the nicest set of component libraries
+
+## Reusable Component Design Tips:
+1. Avoid weak wrapper elements. For example don't use a < p > tag to wrap elements. It is best practice to use divs.
+2. Specify PropTypes. This will help clarify API, warn consumers if there are anything missing. Don't forget you can specify object shape. Also will enable enhanced autocompletion, and improve / create documentation. Flow is a great statis type checker for JavaScript created by FaceBook. 
+3. Do not hard code HTML ID's. This is because your components might be reused on the same page. If something is hardcoded, it will break when there are multipl einstances, and is best practice to receive htmlId as a prop.
+4. Set logical defaults. It will reduce the amount of work when setting up. Saves users typing, helps assure useful behavior and convey commmon use case. Setting logical default props are very smart. Can be done below Component class, inside Component class using the static keyword or if using stateless/dumb components, can be done in function parameters.
+5. Accessibilty Matters. You are concerned with keyboard inputs such as tab indexes (maybe a required field), semantic HTML, investigate ARIA (accessible rich internet applications).
+6. Consider Configuration Objects to handle a component's properties. Such as a CustomerDetail. You could send a customer config object, instead of sending multiple props. It offers consistent component API. There is less typing. Consumers are less error prone. Avoid if your componet has few props (below 5ish).
+7. Consider server rendering. Take into consideration SEO, static site generation (tools such as Gatsby, PHenomic), rendering on server will help performance for users, the public will expect it.
+    Avoid document or window calls. And, avoid using setTimeout.
+8. Remember the single responsibilty principle. Each component should have a clear responsibility. As the number of props go up, the more complex developing and more difficult it will be to maintain. Prefer separate, simple components to one complicated and highly customizable component.
+
+
+## Atomic Design
+Uses scientific terms to describe web applications.
+1. Atoms: Basic building blocks.
+2. Molecules: Groups of two ore more atoms.
+3. Organisms: Groups of moluecules functioning together.
+4. Templates: Put components in a layout.
+5. Pages: Populated templates with content.
+
+Good analogy for React components: Russian dolls can fit smaller dolls.
+
+#### Why should we use Atomic design?
+* Multiple Layers of Abstraction
+* Encourages reuse
+* Convey component relationships
+* Convey intent
+* Hierarchy over Use
+
+
+##### Coding time!
+
+## Coding: Atoms
+* Smallest building block
+* Foundation of a component library
+* Typically composed together
+* Based on core styles
+* GOOD EXAMPLE: Button ["submit"]
+
+Does it make sense to wrap HTML primitives?
+Yes because, you can enhance them
+* Integrated label
+* You gain access to unique element ID
+* Required field marker
+* Default value / placeholder
+* Horizontal and vertical layout
+* Error messaging
+* Touched, dirty meta data
+* Polyfill older browsers
+
+How should we organize our components?
+Common conventions...
+1. React Bootstrap, all components are placed in one single folder, with all logic.
+2. Blueprint, uses TypeScript and uses SCSS for styles.
+3. Material-UI uses a component js, tests js, and export component js
+4. React Toolbox, has Component.js, config.css for styles, index.js for exporting the component/theme, index.d.ts for Intellisense support. readme.md for documentation, theme.css for default theme
+5. Ant Design, TypeScript Component, tests folder, demo folder, index.tsx to export component, and markdown docs in .md
+
+This Code's Folder Structure:
+/Button
+        Button.js
+        Button.spec.js
+        index.js
+/docs
+/examples
+
+### Tips for Atom:
+1. Honor the underlying element's API.
+    * value
+    * maxLength
+    * events (onFocus, onBlur)
+    * use plurals of lists
+2. Pass Props via Spread
+    * {...props}
+    * <input {...this.props}/>
+3. Use Spread with Destructuring
+    * important to avoid non-DOM prompts to composed components
+    * combine rest operator with spread operator
+4. Create formatting components
+    * These components are created for formatting of data / output
+
+* Avoid hard coding all features / options that are available for consumers. Make it openly known. Such as colors of progress bar, border, 
