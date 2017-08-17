@@ -1,4 +1,5 @@
-### Why reusable components?
+# Creating Reusable Components - PluralSight
+## Why reusable components?
 1. Consistency throughout a company's software products.
 2. Efficiency increases when we have components to pull from to prototype or create new pages.
 3. Collaboration. Component library becomes 'open-source'-esque. 
@@ -12,7 +13,7 @@
 
 "A web application is merely built with components."
 
-### Why NOT web components?
+## Why NOT use native web components?
 * modern libraries, accelerate much faster and allow for more features to be used. They are innovative.
 * browser support is very spotty
 etc: template tag, import, shadowDOM
@@ -37,85 +38,85 @@ Most popular frameworks:
 3. Ember.js
 4. Vue.js
 
-### React Reusable Component Decisions
-##### Core Decisions
-=> core technology
-=> audience
-=> rigid or flexible
-=> link, wrap, or fork
+## React Reusable Component Decisions
+#### Core Decisions
+* core technology
+* audience
+* rigid or flexible
+* link, wrap, or fork
 
-##### Dev Environment
-=> boilerplate, doc lib, or custom
-=> library or standalone
-=> monorepo or separate
+#### Dev Environment
+* boilerplate, doc lib, or custom
+* library or standalone
+* monorepo or separate
 
-##### Documentation
-=> off-the-shelf or custom
-=> generating documentation
-=> search
-=> syntax highlighting
-=> interactive playground
-=> hosting
-=> automated deployment
+#### Documentation
+* off-the-shelf or custom
+* generating documentation
+* search
+* syntax highlighting
+* interactive playground
+* hosting
+* automated deployment
 
-##### Design
-=> wrap HTML primitives?
-=> folder structure
-=> declare propTypes?
-=> apply custom props?
-=> defaults?
-=> accessibility
-=> server rendering
-=> config object vs primitives
-=> atoms
-=> molecules
-=> oranisms
+#### Design
+* wrap HTML primitives?
+* folder structure
+* declare propTypes?
+* apply custom props?
+* defaults?
+* accessibility
+* server rendering
+* config object vs primitives
+* atoms
+* molecules
+* oranisms
 
-##### Styling
-=> CSS technoology
-=> inline vs external
-=> namespace
-=> naming scheme
-=> offer unstyled components
-=> theming
+#### Styling
+* CSS technoology
+* inline vs external
+* namespace
+* naming scheme
+* offer unstyled components
+* theming
 
-##### Testing
-=> Framework
-=> Assertions
-=> Helpers
-=> unit
-=> interaction
-=> structural
-=> style
-=> when to run
-=> where to place tests
-=> continuous integration
+#### Testing
+* Framework
+* Assertions
+* Helpers
+* unit
+* interaction
+* structural
+* style
+* when to run
+* where to place tests
+* continuous integration
 
-##### Deployment
-=> dependency declarations
-=> hosting
-=> versioning
-=> declaring package files
-=> output formats
-=> pre-publish testing
-=> build process
+#### Deployment
+* dependency declarations
+* hosting
+* versioning
+* declaring package files
+* output formats
+* pre-publish testing
+* build process
 
-*** 50 + decisions
+Over 50 decisions when thinking of creating component library.
 
-### Four Core Decisions
-1. Audience
-=> projects
-=> entire team
-=> entire business
-=> public
+## Four Core Decisions
+#### 1. Audience
+* projects
+* entire team
+* entire business
+* public
 The needs for it grow when you think of multiple use cases.
 
-2. Rigid or flexible components?
-=> Users will want to make the components flexible with different use cases
-=> allowing users to create colors, padding, size, or fonts
-=> different layouts
-=> data display
-=> logic such as functions or overriding default behavior
+#### 2. Rigid or flexible components?
+* Users will want to make the components flexible with different use cases
+* allowing users to create colors, padding, size, or fonts
+* different layouts
+* data display
+* logic such as functions or overriding default behavior
 
 Rigid has few props for customizing it's looks or behavior.
 + simpler to create, because they have fewer use cases
@@ -130,7 +131,7 @@ Flexible Components:
 
 *** Could always create two different similar components
 
-#### Tragedy of the Commons:
+## Tragedy of the Commons:
 * individuals behave contrary to the common good
 * individuals act and view in their own self-interest
 * complexity must be justified if asked to add 'one more' feature toggle
@@ -173,14 +174,15 @@ Forking => you own the entire code, and have full customizable power. but you ha
 + Much more work.
 
 Link, Wrap or Fork?
-Is it good enough as is to simply link?
-Does this fit our model?
-Are the styles overridable?
-Is the project actively maintained?
-Will wrapping give us enough power?
-Are we committed to it?
+* Is it good enough as is to simply link?
+* Does this fit our model?
+* Are the styles overridable?
+* Is the project actively maintained?
+* Will wrapping give us enough power?
+* Are we committed to it?
 
-4. When should I add components to my library?
+
+#### 4. When should I add components to my library?
 "A reusable component should be tried out in three different applications, before it will sufficiently general to accept into a reuse library... To build something truly reusable, you must convince three different audiences to use it throroughly."
 
 *** It is a good idea to prove your idea with 3 different audiences.
@@ -188,78 +190,90 @@ It is not a reusable component, unless it is placed in three different spots bef
 
 *** TIP: /reusable directory to keep a central place to store app-specific reuseable components
 
-##### Course Assumptions:
+## Course Assumptions:
 * assume you know React basics
 * paste and explain code
 
 ## Development Environment
 Decisions:
-1. Library or standalone?
-Material-UI - offer React components that follow Google Material Design
-Blueprint - modern components
-react-dates - react date-picker from AirBnb
-react-dnd - drag and drop support
-react-griddle
+#### 1. Library or standalone?
+* Material-UI - offer React components that follow Google Material Design
+* Blueprint - modern components
+* react-dates - react date-picker from AirBnb
+* react-dnd - drag and drop support
+* react-griddle
 
-Library         
-+ Consistent look and feel
-+ Easier to add a new component, because there is already a repo 
-+ simpler organization (implements D.R.Y.)
-+ Quickly add components
-+ Simpler dependency management
-+ Automatic discovery
-+ Less marketing overhead
-+ Easier integration testing
-+ People can still use only what they want to use
+Comparison:
 
-Standalone
-+ Easier to build
-+ Easier to adopt, don't have to review all library
-+ Low commitment, easier to replace a single component
-+ Mix and match components together
-+ Flexible
-+ Less version churn
-*** You can manage multiple packages from one single repo.
-=> Lerna - a tool for managing JavaScript projecs with multiple packages (can host multiple npm modules within one repo)
+    Library         
+    + Consistent look and feel
+    + Easier to add a new component, because there is already a repo 
+    + simpler organization (implements D.R.Y.)
+    + Quickly add components
+    + Simpler dependency management
+    + Automatic discovery
+    + Less marketing overhead
+    + Easier integration testing
+    + People can still use only what they want to use
 
-We will be building a library and hosting on one single GitHub repo.
+    Standalone
+    + Easier to build
+    + Easier to adopt, don't have to review all library
+    + Low commitment, easier to replace a single component
+    + Mix and match components together
+    + Flexible
+    + Less version churn
+    + You can manage multiple packages from one single repo.
+        => Lerna - a tool for managing JavaScript projecs with multiple packages (can host multiple npm modules within one repo)
 
-2. Boilerplate, doc library, or build your own?
-A. Boilerplate - over +100 boilerplates (starter kits)
-    *** Reccomended boilerplates: 
-    1. create-react-app
-        + most popular
-        + supported by Facebook
-        + bundles popular tech
-        + well tested
-        + easily upgradable
-        + eject for full configurability
-        
-        - must eject for full configurability
-        - Eject = manual updates
-        - Strong opinions:
-            a. Babel vs TypeScript
-            b. Webpack vs Rollup vs Browserify
-            c. Jest over Mocha, Jasmine, etc.
-    2. NWB - node, webpack and babel into one environment package
-        + component library focused
-        + testing with mocha and karma
-        + transpiles to ES5
-        + can lease ES imports for tree shaking
-        + optional UMD build
 
-        - Oriented toward a single component (rather than a library of components)
-        - Strong opinions:
-            a. Assumes Babel > TypeScript
-            b. Assumes Webpack > Rollup, Browserify
-            c. Assumes Mocha + Karma > Jest
+In this course, we will be building a library and hosting on one single GitHub repo.
 
-    + Complete Flexibilty on doc approach
-    + Many more options
-    + No popular component libs use doc tool
+#### 2. Should we use a boilerplate, doc library, or build your own?
 
-B. Documentation Library / Styleguides
-    *** Documentation is basically your application
+    A. Boilerplate - over +100 boilerplates (starter kits)
+
+        Reccomended boilerplates: 
+        1. create-react-app 
+            Pros:
+            + most popular
+            + supported by Facebook
+            + bundles popular tech
+            + well tested
+            + easily upgradable
+            + eject for full configurability
+
+            Cons:
+            - must eject for full configurability
+            - Eject = manual updates
+            - Strong opinions:
+                a. Babel vs TypeScript
+                b. Webpack vs Rollup vs Browserify
+                c. Jest over Mocha, Jasmine, etc.
+
+        2. NWB - node, webpack and babel into one environment package
+            Pros:
+            + component library focused
+            + testing with mocha and karma
+            + transpiles to ES5
+            + can lease ES imports for tree shaking
+            + optional UMD build
+
+            Cons:
+            - Oriented toward a single component (rather than a library of components)
+            - Strong opinions:
+                a. Assumes Babel > TypeScript
+                b. Assumes Webpack > Rollup, Browserify
+                c. Assumes Mocha + Karma > Jest
+
+## In General:
+* Complete Flexibilty on doc approach
+* Many more options
+* No popular component libs use doc tool
+
+#### B. Documentation Library / Styleguides
+#### Documentation is basically your application
+
     1. React Storybook
         a. Allows you to see different prop-styled components
     2. React Styleguide Generator
@@ -284,7 +298,7 @@ B. Documentation Library / Styleguides
     + Prop documentation
     + Code snippet display
 
-C. Build your own custom development environment
+#### C. Build your own custom development environment
     + Complete control over all aspects of code creation
     + Pick you favorite tooling
     + Complete understanding
@@ -304,15 +318,76 @@ Contains:
     * ESLint
     * Jest
 
-##### Install node & git on local machine
-##### Create public GitHub repo, and set up with local directory
-##### create-react-app bootstraps our folder structure, dependencies, layout and package manager
+##### Commands
+    Install node & git on local machine
+    Create public GitHub repo, and set up with local directory
+    create-react-app bootstraps our folder structure, dependencies, layout and package manager
 
-create-react-app included eject cmd, which allows us to customize environment 
-npm run eject
-    => you can see Babel, ESLint, Jest config files
-    => shows hidden files such as ^^^.config files, polyfills.js, script builds
+    create-react-app included eject cmd, which allows us to customize environment 
+    npm run eject
+        => you can see Babel, ESLint, Jest config files
+        => shows hidden files such as ^^^.config files, polyfills.js, script builds
 
-remove logo.svg, App.css and references in App.js
+    remove logo.svg, App.css and references in App.js
 
 ## Module: Documentation
+Goal: Your docs are your dev environment.
+
+#### Documentation Goals:
+// This will be auto generated with react-docgen
+- Component Description
+- Prop documentation
+    - Type
+    - Description
+    - Default value
+    - Required
+
+// end auto generated
+- Working examples with code
+
+Ensure everyone has a common vision.
+Should be encorporated with the company styleguide with instructions about brand identity, voice and tone, design and language.
+
+Automation of Docs:
++ Code and docs are always in sync
++ More readable code
++ Enforce consistency
+
+##### Documentation Tools:
+* GitHub Readme / Pages
+* React Storybook
+* React Styleguide
+* React Styleguidist
+* Atellier
+* Bluekit
+* Cosmos
+
+***This course will be custom created documentation.
+
+##### What will we be using
+npm Packages for Documentation
+* react-docgen => generate react component metadata (outputs into JSON file)
+* chokidar => watch files
+* highlight.js => syntax highlighted code examples
+* npm-run-all => run parallel tasks
+
+
+DevTips:
+* When creating a new directory, make sure to restart the library.
+
+##### Syntax Highlighting
+1. Highlight.js
+    * Shows proper syntax highlighting and allows people to copy and paste.
+2. Codemirror
+    * Mini editor that will reflect changes in the view.
+    * react-toolbox uses this
+
+##### Potential Doc Enhancements
+1. Search bar on top of the navigation list
+2. Hide the 'internals' of the code
+3. Group Components together
+4. Live prop toggling, usch as BlueKit and Atallia
+5. Markdown support
+6. Live code editing such as CodeMirror. Very impressive and good for feedback. Such as react tool-box. Can link to JSBin, JSFiddle, codesandbox.io.
+
+* react-toolbox has one of the nicest set of component libraries
